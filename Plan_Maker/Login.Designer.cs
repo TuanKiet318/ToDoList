@@ -73,11 +73,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(507, 91);
+            this.label1.Location = new System.Drawing.Point(493, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 31);
+            this.label1.Size = new System.Drawing.Size(174, 31);
             this.label1.TabIndex = 1;
-            this.label1.Text = "ToDoList";
+            this.label1.Text = "PLAN MAKER";
             // 
             // label2
             // 
@@ -108,7 +108,6 @@
             this.username_text.Name = "username_text";
             this.username_text.Size = new System.Drawing.Size(314, 31);
             this.username_text.TabIndex = 4;
-            this.username_text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // password_text
             // 

@@ -35,7 +35,7 @@
             this.Home_btn = new System.Windows.Forms.Button();
             this.Thembutton = new System.Windows.Forms.Button();
             this.Xoabutton = new System.Windows.Forms.Button();
-            this.Suatenbutton = new System.Windows.Forms.Button();
+            this.Thoatbutton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 532);
+            this.panel2.Size = new System.Drawing.Size(257, 529);
             this.panel2.TabIndex = 6;
             // 
             // flowLayoutPanel2
@@ -89,10 +89,10 @@
             this.flowLayoutPanel2.Controls.Add(this.Home_btn);
             this.flowLayoutPanel2.Controls.Add(this.Thembutton);
             this.flowLayoutPanel2.Controls.Add(this.Xoabutton);
-            this.flowLayoutPanel2.Controls.Add(this.Suatenbutton);
+            this.flowLayoutPanel2.Controls.Add(this.Thoatbutton);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 102);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(249, 404);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(249, 411);
             this.flowLayoutPanel2.TabIndex = 9;
             // 
             // Home_btn
@@ -153,24 +153,24 @@
             this.Xoabutton.UseVisualStyleBackColor = false;
             this.Xoabutton.Click += new System.EventHandler(this.Xoabutton_Click);
             // 
-            // Suatenbutton
+            // Thoatbutton
             // 
-            this.Suatenbutton.BackColor = System.Drawing.Color.Teal;
-            this.Suatenbutton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.Suatenbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.Suatenbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.Suatenbutton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Suatenbutton.ForeColor = System.Drawing.Color.White;
-            this.Suatenbutton.Image = global::Plan_Maker.Properties.Resources.icons8_edit_48;
-            this.Suatenbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Suatenbutton.Location = new System.Drawing.Point(3, 238);
-            this.Suatenbutton.Name = "Suatenbutton";
-            this.Suatenbutton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.Suatenbutton.Size = new System.Drawing.Size(238, 71);
-            this.Suatenbutton.TabIndex = 8;
-            this.Suatenbutton.Text = "      Rename";
-            this.Suatenbutton.UseVisualStyleBackColor = false;
-            this.Suatenbutton.Click += new System.EventHandler(this.Suatenbutton_Click);
+            this.Thoatbutton.BackColor = System.Drawing.Color.Teal;
+            this.Thoatbutton.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.Thoatbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.Thoatbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.Thoatbutton.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Thoatbutton.ForeColor = System.Drawing.Color.White;
+            this.Thoatbutton.Image = global::Plan_Maker.Properties.Resources.icons8_minus_48;
+            this.Thoatbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Thoatbutton.Location = new System.Drawing.Point(3, 238);
+            this.Thoatbutton.Name = "Thoatbutton";
+            this.Thoatbutton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 5);
+            this.Thoatbutton.Size = new System.Drawing.Size(238, 71);
+            this.Thoatbutton.TabIndex = 9;
+            this.Thoatbutton.Text = "Exit";
+            this.Thoatbutton.UseVisualStyleBackColor = false;
+            this.Thoatbutton.Click += new System.EventHandler(this.Thoatbutton_Click);
             // 
             // panel3
             // 
@@ -228,7 +228,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(263, 107);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(592, 399);
+            this.listView1.Size = new System.Drawing.Size(592, 413);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(873, 528);
+            this.ClientSize = new System.Drawing.Size(873, 529);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
@@ -281,7 +281,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button Home_btn;
-        private System.Windows.Forms.Button Suatenbutton;
         private System.Windows.Forms.Button Xoabutton;
         private System.Windows.Forms.Button Thembutton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -292,6 +291,7 @@
         private System.Windows.Forms.ColumnHeader Index;
         private System.Windows.Forms.ColumnHeader NameE;
         private System.Windows.Forms.ColumnHeader LocationE;
+        private System.Windows.Forms.Button Thoatbutton;
     }
 }
 

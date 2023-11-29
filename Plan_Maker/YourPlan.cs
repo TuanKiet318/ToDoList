@@ -54,10 +54,14 @@ namespace Plan_Maker
             item.Text = new_node.Event;
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = new_node.Begin.ToString() });
             item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = new_node.End.ToString() });
+            if (new_node.Imp==1) item.BackColor = Color.Yellow;
+            if (new_node.Check==1) item.Checked = true;
             listCV.Items.Add(item);
         }
         void run(DateTime choosetime)
         {
+            if (todolist.Count == 0) button2.Enabled = false;
+            else button2.Enabled = true;
             listCV.Items.Clear();
             if (todolist.ContainsKey(choosetime.Date))
             {
@@ -99,10 +103,6 @@ namespace Plan_Maker
                 oldobj = new CheckedListBox() { Width = 0, Height = 0, Location = new Point(0, oldobj.Location.Y + Cons.dateCheckedListBoxHeight + 8) };
             }
             run(present);
-        }
-        void SetDefaultDate()
-        {
-            //dateTimePicker1.Value = DateTime.Now;
         }
         void ClearMatrix()
         {
@@ -319,24 +319,28 @@ namespace Plan_Maker
         }
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!todolist.ContainsKey(dateTimePicker1.Value.Date)) return;
             todolist[dateTimePicker1.Value.Date].SortAZ();
             run(dateTimePicker1.Value);
         }
 
         private void zAToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!todolist.ContainsKey(dateTimePicker1.Value.Date)) return;
             todolist[dateTimePicker1.Value.Date].SortZA();
             run(dateTimePicker1.Value);
         }
 
         private void gầnNhấtXaNhấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!todolist.ContainsKey(dateTimePicker1.Value.Date)) return;
             todolist[dateTimePicker1.Value.Date].SortBE();
             run(dateTimePicker1.Value);
         }
 
         private void xaNhấtGầnNhấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!todolist.ContainsKey(dateTimePicker1.Value.Date)) return;
             todolist[dateTimePicker1.Value.Date].SortEB();
             run(dateTimePicker1.Value);
         }
@@ -371,47 +375,63 @@ namespace Plan_Maker
                     }
         }
 
-        private void YourPlan_FormClosed(object sender, FormClosedEventArgs e)
+        private void Show_lb_Click(object sender, EventArgs e)
         {
-            //UpdateFile.Update_File(todolist);
+            Node_Event node = new Node_Event();
+            node = (Node_Event)Show_lb.Items[Show_lb.SelectedIndex];
+            run(node.Begin);
         }
-
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string s = listCV.SelectedItems[0].Text;
-            if (s!=null)
+            try
             {
-                Node_Event node = todolist[dateTimePicker1.Value.Date].Head;
-                while (node.Event!=s)
+                string s = listCV.SelectedItems[0].Text;
+                if (s != null)
                 {
-                    node = node.Next;
+                    Node_Event node = todolist[dateTimePicker1.Value.Date].Head;
+                    while (node.Event != s)
+                    {
+                        node = node.Next;
+                    }
+                    update_Stack(undo_Stack, todolist);
+                    undo_T.Push(dateTimePicker1.Value);
+                    undoToolStripMenuItem.Enabled = true;
+                    todolist[dateTimePicker1.Value.Date].Remove(node);
+                    if (todolist[dateTimePicker1.Value.Date].Head == null) todolist.Remove(dateTimePicker1.Value.Date);
+                    run(dateTimePicker1.Value);
                 }
-                update_Stack(undo_Stack, todolist);
-                undo_T.Push(dateTimePicker1.Value);
-                undoToolStripMenuItem.Enabled = true;
-                todolist[dateTimePicker1.Value.Date].Remove(node);
-                run(dateTimePicker1.Value);
+            }
+            catch (Exception ex)
+            {
+                contextMenuStrip1.Close();
             }
             
         }
 
         private void sửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string s = listCV.SelectedItems[0].Text;
-            if (s != null)
+            try
             {
-                Node_Event node = todolist[dateTimePicker1.Value.Date].Head;
-                while (node.Event != s)
+                string s = listCV.SelectedItems[0].Text;
+                if (s != null)
                 {
-                    node = node.Next;
+                    Node_Event node = todolist[dateTimePicker1.Value.Date].Head;
+                    while (node.Event != s)
+                    {
+                        node = node.Next;
+                    }
+                    update_Stack(undo_Stack, todolist);
+                    undo_T.Push(dateTimePicker1.Value);
+                    undoToolStripMenuItem.Enabled = true;
+                    Fix fix = new Fix();
+                    fix.Info(node);
+                    fix.ShowDialog();
+                    run(present);
                 }
-                update_Stack(undo_Stack, todolist);
-                undo_T.Push(dateTimePicker1.Value);
-                undoToolStripMenuItem.Enabled = true;
-                Fix fix = new Fix();
-                fix.Info(node);
-                fix.ShowDialog();
-                run(present);
+            }
+            catch (Exception ex)
+            {
+                contextMenuStrip1.Close();
             }
         }
 
@@ -420,6 +440,41 @@ namespace Plan_Maker
         {
             TienDo td = new TienDo();
             td.ShowDialog();
+        }
+
+        private void Search_tb_Click(object sender, EventArgs e)
+        {
+            Search_tb.Clear();
+        }
+
+        private void YourPlan_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void chiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string s = listCV.SelectedItems[0].Text;
+                if (s != null)
+                {
+                    Node_Event node = todolist[dateTimePicker1.Value.Date].Head;
+                    while (node.Event != s)
+                    {
+                        node = node.Next;
+                    }
+                    node.Display();
+                }
+            }
+            catch (Exception ex )
+            {
+                contextMenuStrip1.Close();
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (listCV.SelectedItems.Count<=0) { contextMenuStrip1.Close(); }
         }
     }
 }

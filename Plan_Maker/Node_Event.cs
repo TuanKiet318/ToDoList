@@ -3,8 +3,10 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Plan_Maker
 {
@@ -53,6 +55,16 @@ namespace Plan_Maker
         public override string ToString()
         {
             return Event + " " +Begin.ToString();
+        }
+        public void Display()
+        {
+            string output = "";
+            output += "Sự kiện: " + Event + "\n"
+            + "Bắt đầu: " + Begin.ToString() + "\n"
+            + "Kết thúc: " + End.ToString() + "\n"
+            + "Quan trọng: ";
+            if (Imp == 1) output += "Yes"; else output += "No";
+            MessageBox.Show(output, "Chi tiết");
         }
     }
 }

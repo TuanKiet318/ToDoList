@@ -95,6 +95,9 @@ namespace Plan_Maker
         }
         private void Xoabutton_Click(object sender, EventArgs e)
         {
+            DialogResult rs = new DialogResult();
+            rs = MessageBox.Show("File sẽ bị xóa vĩnh viễn, bạn chắc chắn muốn xóa!", "Cảnh báo", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.No) return;
             for (int i = 0; i < listView1.SelectedItems.Count; i++)
             {
                 string s = list[Int32.Parse(listView1.SelectedItems[i].Text)];
@@ -136,9 +139,9 @@ namespace Plan_Maker
             }   
         }
 
-        private void Suatenbutton_Click(object sender, EventArgs e)
+        private void Thoatbutton_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit(); 
         }
     }
 }

@@ -30,12 +30,17 @@ namespace Plan_Maker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listCVTre = new System.Windows.Forms.ListView();
+            this.Event = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Begin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.End = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stateButton = new System.Windows.Forms.Button();
             this.endButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
@@ -52,11 +57,6 @@ namespace Plan_Maker
             this.label1 = new System.Windows.Forms.Label();
             this.pBar2 = new CircularProgressBar.CircularProgressBar();
             this.pBar1 = new CircularProgressBar.CircularProgressBar();
-            this.listCVTre = new System.Windows.Forms.ListView();
-            this.Event = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Begin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.End = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChartBDT)).BeginInit();
             this.SuspendLayout();
@@ -96,6 +96,42 @@ namespace Plan_Maker
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(999, 527);
             this.panel1.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(547, 292);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(304, 25);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Danh sách công việc bị trễ tiến độ";
+            // 
+            // listCVTre
+            // 
+            this.listCVTre.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Event,
+            this.Begin,
+            this.End});
+            this.listCVTre.HideSelection = false;
+            this.listCVTre.Location = new System.Drawing.Point(410, 320);
+            this.listCVTre.Name = "listCVTre";
+            this.listCVTre.Size = new System.Drawing.Size(572, 187);
+            this.listCVTre.TabIndex = 34;
+            this.listCVTre.UseCompatibleStateImageBehavior = false;
+            this.listCVTre.View = System.Windows.Forms.View.Details;
+            // 
+            // Event
+            // 
+            this.Event.Text = "Sự kiện";
+            // 
+            // Begin
+            // 
+            this.Begin.Text = "Thời gian bắt đầu";
+            // 
+            // End
+            // 
+            this.End.Text = "Thời gian kết thúc";
             // 
             // stateButton
             // 
@@ -200,21 +236,21 @@ namespace Plan_Maker
             // 
             // ChartBDT
             // 
-            chartArea6.Name = "ChartArea1";
-            this.ChartBDT.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.ChartBDT.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.ChartBDT.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ChartBDT.Legends.Add(legend1);
             this.ChartBDT.Location = new System.Drawing.Point(26, 207);
             this.ChartBDT.Name = "ChartBDT";
             this.ChartBDT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series6.BorderColor = System.Drawing.Color.White;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.Legend = "Legend1";
-            series6.MarkerColor = System.Drawing.Color.Aqua;
-            series6.Name = "ChartBDT";
-            series6.ShadowColor = System.Drawing.Color.White;
-            this.ChartBDT.Series.Add(series6);
+            series1.BorderColor = System.Drawing.Color.White;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.Aqua;
+            series1.Name = "ChartBDT";
+            series1.ShadowColor = System.Drawing.Color.White;
+            this.ChartBDT.Series.Add(series1);
             this.ChartBDT.Size = new System.Drawing.Size(486, 300);
             this.ChartBDT.TabIndex = 23;
             this.ChartBDT.Text = "chart1";
@@ -313,42 +349,6 @@ namespace Plan_Maker
             this.pBar1.TextMargin = new System.Windows.Forms.Padding(4, 4, 0, 0);
             this.pBar1.Value = 68;
             // 
-            // listCVTre
-            // 
-            this.listCVTre.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Event,
-            this.Begin,
-            this.End});
-            this.listCVTre.HideSelection = false;
-            this.listCVTre.Location = new System.Drawing.Point(410, 320);
-            this.listCVTre.Name = "listCVTre";
-            this.listCVTre.Size = new System.Drawing.Size(572, 187);
-            this.listCVTre.TabIndex = 34;
-            this.listCVTre.UseCompatibleStateImageBehavior = false;
-            this.listCVTre.View = System.Windows.Forms.View.Details;
-            // 
-            // Event
-            // 
-            this.Event.Text = "Sự kiện";
-            // 
-            // Begin
-            // 
-            this.Begin.Text = "Thời gian bắt đầu";
-            // 
-            // End
-            // 
-            this.End.Text = "Thời gian kết thúc";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(547, 292);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(304, 25);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Danh sách công việc bị trễ tiến độ";
-            // 
             // TienDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,6 +357,7 @@ namespace Plan_Maker
             this.ClientSize = new System.Drawing.Size(1023, 554);
             this.Controls.Add(this.panel1);
             this.Name = "TienDo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TienDo";
             this.Load += new System.EventHandler(this.TienDo_Load);
             this.panel1.ResumeLayout(false);

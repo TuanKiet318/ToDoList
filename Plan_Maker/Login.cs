@@ -24,11 +24,6 @@ namespace Plan_Maker
         }
         string filePath = "D:\\Đồ án DASA\\Plan_Maker\\Account\\Account.txt";
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string username = username_text.Text;
@@ -50,23 +45,18 @@ namespace Plan_Maker
         {
             try
             {
-                // Đọc tất cả các dòng từ tệp tin
                 string[] lines = File.ReadAllLines(filePath);
-
-                // Kiểm tra từng dòng để tìm thông tin đăng nhập
                 foreach (var line in lines)
                 {
-                    // Phân tách thông tin đăng nhập từ dòng
                     string[] parts = line.Split(',');
 
-                    // So sánh tên đăng nhập và mật khẩu
                     if (parts.Length == 2 && parts[0].Trim() == username && parts[1].Trim() == password)
                     {
-                        return true; // Đăng nhập thành công
+                        return true; 
                     }
                 }
 
-                return false; // Không tìm thấy thông tin đăng nhập
+                return false; 
             }
             catch (Exception ex)
             {
@@ -95,14 +85,11 @@ namespace Plan_Maker
             else
             {
 
-                // Chuỗi kết quả
                 string combinedString = $"{username},{password}";
 
-                // Ghi chuỗi vào tệp tin
                 File.AppendAllText(filePath, combinedString + Environment.NewLine);
                 string directoryPath = "D:\\" + username;
 
-                // Gọi phương thức để tạo thư mục
                 CreateDirectory(directoryPath);
 
                 Console.WriteLine("Đã tạo thư mục thành công.");
@@ -114,7 +101,6 @@ namespace Plan_Maker
         {
             try
             {
-                // Tạo thư mục nếu nó không tồn tại
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -133,23 +119,19 @@ namespace Plan_Maker
         {
             try
             {
-                // Đọc tất cả các dòng từ tệp tin
                 string[] lines = File.ReadAllLines(filePath);
 
-                // Kiểm tra từng dòng để tìm thông tin đăng nhập
                 foreach (var line in lines)
                 {
-                    // Phân tách thông tin đăng nhập từ dòng
                     string[] parts = line.Split(',');
 
-                    // So sánh tên đăng nhập và mật khẩu
                     if (parts.Length == 2 && parts[0].Trim() == username)
                     {
-                        return true; // Đăng nhập thành công
+                        return true; 
                     }
                 }
 
-                return false; // Không tìm thấy thông tin đăng nhập
+                return false; 
             }
             catch (Exception ex)
             {
@@ -202,18 +184,13 @@ namespace Plan_Maker
             else
             {
 
-                // Chuỗi kết quả
                 string combinedString = $"{username},{password}";
 
-                // Ghi chuỗi vào tệp tin
                 File.AppendAllText(filePath, combinedString + Environment.NewLine);
                 string directoryPath = "D:\\" + username;
 
-                // Gọi phương thức để tạo thư mục
                 CreateDirectory(directoryPath);
 
-                Console.WriteLine("Đã tạo thư mục thành công.");
-                Console.WriteLine("Đã lưu vào tệp tin.");
                 MessageBox.Show("Bạn đã đăng kí thành công.\nVui lòng đăng nhập.");
             }
         }
